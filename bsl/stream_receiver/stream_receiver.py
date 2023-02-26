@@ -103,6 +103,11 @@ class StreamReceiver:
                     self._streams[streamInfo.name()] = StreamMarker(
                         streamInfo, self._bufsize, self._winsize
                     )
+                ### Modified code to account for default case as EEG stream
+                else:
+                    self._streams[streamInfo.name()] = StreamEEG(
+                        streamInfo, self._bufsize, self._winsize
+                    )
 
                 self._connected = True
 
